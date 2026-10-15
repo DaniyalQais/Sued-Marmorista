@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sued Marmorista — Mármores, Granitos e Quartzo | Fortaleza</title>
+<meta name="description" content="Instalação de alto padrão em mármores, granitos, quartzo, pedras sintéticas e Dekton. Bancadas, pias e escadas com acabamento impecável em Fortaleza e região. Solicite um orçamento.">
+<!--
+  DEMO POLIDA — Sued Marmorista (website conceitual demonstrativo)
+  • WhatsApp: +55 85 8593-0000 — links wa.me configurados via CLIENT_CONFIG.
+    AVISO: Confirmar com o cliente se o número oficial possui o 9º dígito (+55 85 98593-0000).
+  • Logo: coloque o arquivo original em assets/logo.png para usá-lo automaticamente no lugar do wordmark.
+  • Imagens: fotografias arquitetônicas de referência demonstrativa (não reivindicadas como obras concluídas pela marmoraria).
+-->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E4580F'/%3E%3Cpath d='M8 24 L16 8 L24 24 Z' fill='%23FFFFFF' opacity='.9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.jpg">
+<style>
+:root{
+  color-scheme:light;
+  --orange:#E4580F; --orange-deep:#C74808;
+  --ink:#1C1A17; --ink-soft:#57524A;
+  --paper:#FFFFFF; --paper-warm:#FAF7F2;
+  --stone:#EDE8E0; --stone-deep:#E0D9CC; --line:#E5DFD5;
+  --radius:2px;
+  --pad:clamp(20px,5vw,72px);
+  --measure:62ch;
+  --ease:cubic-bezier(.25,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{font-family:"Instrument Sans",system-ui,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(2.4rem,5.2vw,4.1rem)}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+h3{font-size:1.25rem}
+p{max-width:var(--measure);color:var(--ink-soft)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- scroll offset fix para header fixo ---------- */
+section, .anchor-target{scroll-margin-top:84px}
+.anchor-target{display:block;position:relative;top:-84px;visibility:hidden;height:0}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-weight:600;font-size:.95rem;padding:.85em 1.5em;border-radius:var(--radius);border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s var(--ease),border-color .2s,transform .2s,box-shadow .2s}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-deep)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.btn svg{flex:none}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:2rem;height:74px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand img{height:44px;width:auto}
+.brand .wordmark{font-family:Fraunces,serif;font-size:1.35rem;line-height:1;letter-spacing:.01em}
+.brand .wordmark b{color:var(--orange);font-weight:600}
+.brand .wordmark small{display:block;font-family:"Instrument Sans";font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);margin-top:.3rem}
+.nav-links{display:flex;gap:1.9rem;margin-left:auto;list-style:none}
+.nav-links a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+.nav .btn{margin-left:.5rem}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:.55rem .7rem;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
+.mobile-menu ul{list-style:none;padding:1rem var(--pad) 1.4rem}
+.mobile-menu a{display:block;padding:.75rem 0;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line);color:var(--ink)}
+.mobile-menu a:hover{color:var(--orange)}
+.mobile-menu .btn{margin-top:1rem;width:100%;justify-content:center}
+.mobile-menu.open{display:block}
+@media (max-width:900px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:block}
+}
+
+/* ---------- hero desktop ---------- */
+.hero{background:var(--paper-warm);overflow:hidden;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(3rem,7vw,6rem)}
+.hero-copy p{margin:1.4rem 0 2.2rem;font-size:1.08rem}
+.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero-media{position:relative}
+.hero-media img{width:100%;height:clamp(340px,46vw,560px);object-fit:cover;border-radius:var(--radius)}
+.hero-media::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(28,26,23,.32));pointer-events:none}
+.hero-tag{position:absolute;left:1.1rem;bottom:1.1rem;z-index:2;background:#fff;padding:.45rem .9rem;border-radius:var(--radius);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+
+/* ---------- hero mobile com foto de fundo ---------- */
+@media (max-width:900px){
+  .hero{
+    background-color:#1C1A17;
+    background-image:url('assets/hero.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:72% center;
+    min-height:min(86vh,590px);
+    display:flex;
+    align-items:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    /* Overlay em gradiente sutil: mais escuro na esquerda e topo para máxima legibilidade do texto e contraste do botão laranja, deixando transparecer a beleza da pedra natural */
+    background:linear-gradient(
+      180deg,
+      rgba(20,18,16,0.85) 0%,
+      rgba(20,18,16,0.68) 50%,
+      rgba(20,18,16,0.85) 100%
+    );
+    z-index:1;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    grid-template-columns:1fr;
+    padding-block:clamp(2.6rem,8vh,4.2rem);
+    width:100%;
+  }
+  .hero-media{display:none} /* Oculta a imagem duplicada em coluna no mobile */
+  .hero-copy{max-width:540px}
+  .hero-copy h1{
+    color:#FFFFFF;
+    font-size:clamp(2.05rem,6.6vw,2.75rem);
+    text-shadow:0 2px 14px rgba(0,0,0,0.55);
+  }
+  .hero-copy p{
+    color:rgba(255,255,255,0.92);
+    font-size:clamp(0.98rem,3.4vw,1.08rem);
+    margin:1.1rem 0 1.9rem;
+    text-shadow:0 1px 8px rgba(0,0,0,0.5);
+    max-width:44ch;
+  }
+  .hero-ctas{gap:.8rem}
+  .hero-ctas .btn-primary{
+    background:var(--orange);
+    color:#FFFFFF;
+    box-shadow:0 4px 18px rgba(228,88,15,0.45);
+  }
+  .hero-ctas .btn-primary:hover{background:var(--orange-deep)}
+  .hero-ctas .btn-ghost{
+    border-color:rgba(255,255,255,0.75);
+    color:#FFFFFF;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .hero-ctas .btn-ghost:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+    background:rgba(255,255,255,0.2);
+  }
+}
+
+/* ---------- seções ---------- */
+section{padding-block:clamp(3.4rem,7vw,6.5rem)}
+.sec-head{margin-bottom:clamp(1.8rem,4vw,3rem)}
+.sec-head h2{max-width:24ch}
+.sec-head p{margin-top:.8rem}
+.alt{background:var(--stone)}
+
+/* ---------- materiais ---------- */
+.mat-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.mat{position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:3/4;text-decoration:none;background:var(--stone-deep)}
+.mat img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mat:hover img{transform:scale(1.05)}
+.mat figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem 1rem 1rem;background:linear-gradient(transparent,rgba(28,26,23,.82));color:#fff}
+.mat figcaption b{display:block;font-family:Fraunces,serif;font-size:1.15rem;font-weight:500}
+.mat figcaption span{font-size:.78rem;opacity:.88}
+@media (max-width:900px){.mat-strip{grid-template-columns:repeat(2,1fr)}.mat-strip .mat:last-child{grid-column:1/-1;aspect-ratio:16/9}}
+
+/* ---------- projetos ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
+.proj{position:relative;border-radius:var(--radius);overflow:hidden;text-decoration:none;background:var(--stone-deep)}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.proj:hover img{transform:scale(1.035)}
+.proj figcaption{position:absolute;left:1rem;bottom:1rem;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.4rem .85rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.p1{grid-column:span 7;aspect-ratio:16/10}
+.p2{grid-column:span 5;aspect-ratio:auto}
+.p3{grid-column:span 4;aspect-ratio:4/5}
+.p4{grid-column:span 4;aspect-ratio:4/5}
+.p5{grid-column:span 4;aspect-ratio:4/5}
+@media (max-width:900px){
+  .p1,.p2{grid-column:span 12;aspect-ratio:16/10}
+  .p3,.p4,.p5{grid-column:span 12;aspect-ratio:16/10}
+}
+.proj-note{margin-top:1.2rem;font-size:.82rem;color:var(--ink-soft);font-style:italic}
+
+/* ---------- diferenciais ---------- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:.5rem}
+.why h3{margin:.9rem 0 .4rem}
+.why p{font-size:.95rem}
+.why .ico{width:38px;height:38px;color:var(--orange)}
+@media (max-width:700px){.why{grid-template-columns:1fr;gap:1.6rem}}
+
+/* ---------- CTA ---------- */
+.cta{position:relative;color:#fff;background:var(--ink)}
+.cta::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.02' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.82 0 0 0 0 0.76 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='600' height='400' filter='url(%23m)'/%3E%3C/svg%3E");opacity:.35;pointer-events:none}
+.cta .wrap{position:relative;padding-block:clamp(3rem,6vw,5rem);display:flex;flex-wrap:wrap;align-items:center;gap:2rem;justify-content:space-between}
+.cta h2{color:#fff;max-width:20ch}
+.cta p{color:rgba(255,255,255,.82);margin-top:.6rem}
+.cta .btn-primary{background:#fff;color:var(--ink)}
+.cta .btn-primary:hover{background:var(--paper-warm);color:var(--ink)}
+.cta .btn-primary svg path{fill:var(--orange)}
+
+/* ---------- botão flutuante de whatsapp ---------- */
+.wa-float{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:90;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  background:#25D366;
+  color:#fff;
+  padding:.75rem 1.15rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.88rem;
+  box-shadow:0 6px 20px rgba(37,211,102,.38);
+  transition:transform .25s var(--ease),box-shadow .25s;
+}
+.wa-float:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 8px 24px rgba(37,211,102,.52);
+  color:#fff;
+}
+@media (max-width:640px){
+  .wa-float{padding:.85rem;right:1rem;bottom:1rem}
+  .wa-float .wa-label{display:none}
+}
+
+/* ---------- footer ---------- */
+footer{background:var(--paper-warm);border-top:1px solid var(--line);padding-block:3rem 2rem;font-size:.9rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:2rem}
+footer h4{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.9rem;font-weight:600}
+footer ul{list-style:none}
+footer li{margin-bottom:.5rem}
+footer a{text-decoration:none;color:var(--ink-soft);transition:color .2s}
+footer a:hover{color:var(--orange)}
+.foot-brand p{font-size:.86rem;margin-top:.8rem}
+.foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-soft)}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+/* page-load reveal */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-copy>*{animation:rise .7s var(--ease) backwards}
+.hero-copy>*:nth-child(2){animation-delay:.08s}
+.hero-copy>*:nth-child(3){animation-delay:.16s}
+.hero-media{animation:rise .8s var(--ease) .1s backwards}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Sued Marmorista — início">
+      <!-- LOGO ORIGINAL: substitua por <img src="assets/logo.png" alt="Sued Marmorista"> quando o arquivo for fornecido pelo cliente -->
+      <span class="wordmark" data-demo="wordmark provisório">Sued <b>Marmorista</b><small>Mármores · Granitos · Quartzitos</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#materiais">Materiais</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#contato">Solicitar Orçamento</a>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mmenu" aria-label="Menu móvel">
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#materiais">Materiais</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a class="btn btn-primary" href="#contato">Solicitar Orçamento</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" style="padding-block:0">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Transformamos pedras em ambientes extraordinários</h1>
+        <p>Mármores, granitos, quartzo e superfícies de alto padrão para projetos que valorizam cada detalhe em Fortaleza e região.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contato">Solicitar Orçamento</a>
+          <a class="btn btn-ghost" href="#projetos">Conhecer Projetos</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/hero.jpg" alt="Ilha gourmet contemporânea em mármore claro com acabamento em cascata — fotografia ilustrativa de referência" width="1200" height="900" loading="eager">
+        <figcaption class="hero-tag">Bancadas &amp; Ilhas</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════ MATERIAIS ══════════ -->
+  <section id="materiais" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Materiais que definem o padrão do projeto</h2>
+        <p>Trabalhamos com pedras naturais e superfícies industrializadas de alta performance, selecionadas para cada ambiente.</p>
+      </div>
+      <div class="mat-strip">
+        <figure class="mat">
+          <img alt="Amostra de mármore natural polido com veios clássicos refinados" src="assets/mat-marmore.jpg" width="600" height="800" loading="lazy">
+          <figcaption><b>Mármore</b><span>Elegância clássica</span></figcaption>
+        </figure>
+        <figure class="mat">
+          <img alt="Amostra de granito preto polido de alta densidade e resistência" src="assets/mat-granito.jpg" width="600" height="800" loading="lazy">
+          <figcaption><b>Granito</b><span>Resistência e presença</span></figcaption>
+        </figure>
+        <figure class="mat">
+          <img alt="Superfície de quartzo branco acetinado de alta uniformidade" src="assets/mat-quartzo.jpg" width="600" height="800" loading="lazy">
+          <figcaption><b>Quartzo</b><span>Uniformidade premium</span></figcaption>
+        </figure>
+        <figure class="mat">
+          <img alt="Pedra sintética cristalizada com acabamento bisotado de alta precisão" src="assets/mat-sintetica.jpg" width="600" height="800" loading="lazy">
+          <figcaption><b>Pedras Sintéticas</b><span>Versatilidade contemporânea</span></figcaption>
+        </figure>
+        <figure class="mat">
+          <img alt="Superfície ultracompacta Dekton com textura acetinada de alta performance" src="assets/mat-dekton.jpg" width="600" height="800" loading="lazy">
+          <figcaption><b>Dekton</b><span>Ultra compacto de alta performance</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVIÇOS & PROJETOS ══════════ -->
+  <!-- Âncora de serviços para compatibilidade total de navegação -->
+  <div id="servicos" class="anchor-target" aria-hidden="true"></div>
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projetos e serviços especializados</h2>
+        <p>Cada instalação é executada com precisão de medida e acabamento cuidadoso, do corte ao polimento final.</p>
+      </div>
+      <div class="proj-grid">
+        <a class="proj p1" href="#contato">
+          <img alt="Cozinha contemporânea com ampla ilha central em mármore escuro com acabamento em cascata — fotografia ilustrativa de referência" src="assets/proj-cozinha.jpg" width="1200" height="750" loading="lazy">
+          <figcaption>Cozinhas &amp; Ilhas</figcaption>
+        </a>
+        <a class="proj p2" href="#contato">
+          <img alt="Banheiro moderno com cuba esculpida e bancada suspensa em mármore claro — fotografia ilustrativa de referência" src="assets/proj-banheiro.jpg" width="800" height="750" loading="lazy">
+          <figcaption>Banheiros &amp; Cubas Esculpidas</figcaption>
+        </a>
+        <a class="proj p3" href="#contato">
+          <img alt="Escada flutuante em mármore nobre com iluminação de LED integrada — fotografia ilustrativa de referência" src="assets/proj-escada.jpg" width="700" height="875" loading="lazy">
+          <figcaption>Escadas</figcaption>
+        </a>
+        <a class="proj p4" href="#contato">
+          <img alt="Bancada gourmet em quartzo branco com cooktop embutido e canto em meia-esquadria — fotografia ilustrativa de referência" src="assets/proj-bancada.jpg" width="700" height="875" loading="lazy">
+          <figcaption>Bancadas Gourmet</figcaption>
+        </a>
+        <a class="proj p5" href="#contato">
+          <img alt="Painel arquitetônico em pedra exótica com veios espelhados em sala de estar — fotografia ilustrativa de referência" src="assets/proj-outros.jpg" width="700" height="875" loading="lazy">
+          <figcaption>Painéis &amp; Projetos Especiais</figcaption>
+        </a>
+      </div>
+      <p class="proj-note">Imagens ilustrativas para referência arquitetônica e conceitual do padrão de acabamento — em breve, fotos reais das obras executadas pela Sued Marmorista.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ DIFERENCIAIS / SOBRE ══════════ -->
+  <section id="sobre" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Atenção a cada detalhe, do acerto à instalação</h2>
+      </div>
+      <div class="why">
+        <div>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2l2.4 6.9L21 9.3l-5 4.4 1.6 6.9L12 16.8 6.4 20.6 8 13.7 3 9.3l6.6-.4z"/></svg>
+          <h3>Seleção de material</h3>
+          <p>Orientação na escolha da pedra ideal para cada ambiente, considerando uso, estética e desempenho.</p>
+        </div>
+        <div>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg>
+          <h3>Medição precisa</h3>
+          <p>Cada peça é cortada sob medida, com conferência criteriosa no local antes da instalação.</p>
+        </div>
+        <div>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <h3>Acabamento impecável</h3>
+          <p>Biselados, recortes e polimentos executados com cuidado para um resultado de alto padrão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA / CONTATO ══════════ -->
+  <section id="contato" class="cta">
+    <div class="wrap">
+      <div>
+        <h2>Seu próximo projeto começa aqui</h2>
+        <p>Conte-nos um pouco sobre o seu projeto e solicite um orçamento detalhado pelo WhatsApp.</p>
+      </div>
+      <a class="btn btn-primary" data-whatsapp
+         href="https://wa.me/558585930000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20projeto%20com%20a%20Sued%20Marmorista."
+         target="_blank" rel="noopener noreferrer">
+        Solicitar Orçamento pelo WhatsApp
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5 13.9c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-6-5.3c-.6-1-.9-2-.4-2.7.2-.4.6-.7 1-.7h.6c.2 0 .4.1.6.5l.8 2c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.6 2 2.5 2.4.2.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l1.9 1c.3.1.4.3.4.5s0 .9-.3 1.5z"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Botão Flutuante de WhatsApp -->
+<a class="wa-float" data-whatsapp
+   href="https://wa.me/558585930000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20projeto%20com%20a%20Sued%20Marmorista."
+   target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5 13.9c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-6-5.3c-.6-1-.9-2-.4-2.7.2-.4.6-.7 1-.7h.6c.2 0 .4.1.6.5l.8 2c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.6 2 2.5 2.4.2.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l1.9 1c.3.1.4.3.4.5s0 .9-.3 1.5z"/></svg>
+  <span class="wa-label">Orçamento WhatsApp</span>
+</a>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="wordmark" style="font-family:Fraunces,serif;font-size:1.2rem">Sued <b style="color:var(--orange);font-weight:600">Marmorista</b></span>
+      <p>Especialista em instalação de alto padrão: mármores, granito, sintético, quartzo e Dekton em Fortaleza e região metropolitana.</p>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Materiais</h4>
+      <ul>
+        <li>Mármore</li><li>Granito</li><li>Quartzo</li><li>Pedras Sintéticas</li><li>Dekton</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li>Fortaleza — CE</li>
+        <li><a data-whatsapp href="https://wa.me/558585930000?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20projeto%20com%20a%20Sued%20Marmorista." target="_blank" rel="noopener noreferrer">WhatsApp — Solicitar Orçamento</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© 2026 Sued Marmorista. Todos os direitos reservados.</span>
+    <span>Website demonstrativo — fotografias ilustrativas para fins conceituais.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /*
+   * CONFIGURAÇÃO CENTRAL DE CONTATO
+   * IMPORTANTE: Confirmar com o cliente se o número de WhatsApp é:
+   * 558585930000 (8 dígitos pós-DDD) ou 5585985930000 (com nono dígito '9', padrão de celulares no Ceará).
+   */
+  var CLIENT_CONFIG = {
+    whatsappNumber: "558585930000",
+    whatsappMessage: "Olá! Gostaria de solicitar um orçamento para o meu projeto com a Sued Marmorista."
+  };
+
+  // Aplica o link oficial e a mensagem codificada em todos os botões marcados com data-whatsapp
+  var waUrl = "https://wa.me/" + CLIENT_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CLIENT_CONFIG.whatsappMessage);
+  document.querySelectorAll("[data-whatsapp]").forEach(function(el){
+    el.href = waUrl;
+  });
+
+  // Menu móvel acessível
+  var b = document.querySelector('.burger'), m = document.getElementById('mmenu');
+  if(b && m){
+    b.addEventListener('click', function(){
+      var open = m.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    m.addEventListener('click', function(e){
+      if(e.target.closest('a')){
+        m.classList.remove('open');
+        b.setAttribute('aria-expanded', 'false');
+        b.setAttribute('aria-label', 'Abrir menu');
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
